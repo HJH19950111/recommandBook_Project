@@ -39,7 +39,18 @@
                 </ul>
             </div>
         </div>
+
+        <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/views/logout}">
+            <button sec:authorize="isAuthenticated()" class="btn btn primary btn-lg text-white"
+                    type="submit" style="float:right;">Logout</button>
+            <button sec:authorize="isAnonymous()" class="btn btn primary btn-lg text-white" th:href="@{/views/login}"
+                    type="submit" style="float:right;">Login</button>
+        </form>
+        <button sec:authorize="isAnonymous()" class="btn btn primary btn-lg text-white"
+                onclick="location.href='/views/signUp';"
+                type="submit" style="float:right;">SignUp</button>
     </nav>
+
     <!-- Page Header-->
     <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
         <div class="container position-relative px-4 px-lg-5">
