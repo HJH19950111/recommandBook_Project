@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/defaultLayout}"
+      layout:fragment="Content">
+<head>
+</head>
+    <body>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <form action="/views/searchBookResult" method="GET">
+                <input type="text" name="keyWord" placeholder="검색">
+                <button type="submit" class="btn btn-outline-secondary">검색</button>
+            </form>
+        </main>
+    </body>
+</html>

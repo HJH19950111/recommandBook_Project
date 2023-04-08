@@ -6,37 +6,128 @@
       layout:decorate="~{layout/defaultLayout}"
       layout:fragment="Content">
 <head>
-<head>
     <meta charset="UTF-8">
-</head>
+    <style>
+        .container h2{
+          color: #111;
+          margin-bottom: 45px;
+          line-height: 1em;
+          font-weight: 500;
+          padding-left: 10px;
+          border-left: 5px solid #e91e63;
+        }
+        .container .inputBox {
+          position: relative;
+          width: 300px;
+          height: 46px;
+          margin-bottom: 35px;
+        }
+        .container .inputbox:last-child {
+          margin-bottom: 0;
+        }
+        .container .inputBox input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          border: 1px solid #111;
+          background: transparent;
+          padding: 10px;
+          border-radius: 4px;
+          box-sizing: border-box;
+          outline: none;
+          font-size: 16px;
+          color: #111;
+          font-weight: 300;
+        }
+        .container .inputBox  span {
+          position: absolute;
+          top: 1px;
+          left: 1px;
+          padding: 10px;
+          display: inline-block;
+          font-size: 16px;
+          color: #111;
+          font-weight: 300;
+          transition: 0.5s;
+          pointer-events: none;
+        }
+        .container .inputBox input:focus ~ span,
+        .container .inputBox input:valid ~ span{
+          transform: translate(-10px, -32px);
+          font-size: 12px;
+        }
+        .container .inputBox input[type="submit"] {
+          background: #2196f3;
+          color: #fff;
+          border: none;
+          max-width: 120px;
+          cursor: pointer;
+          font-weight: 500;
+        }
+        .container .inputBox input[type="submit"]:hover {
+          background: #e91e63;
+        }
+        .container .inputBox input[type="button"] {
+          background: #2196f3;
+          color: #fff;
+          border: none;
+          max-width: 120px;
+          cursor: pointer;
+          font-weight: 500;
+        }
+        .container .inputBox input[type="button"]:hover {
+          background: #e91e63;
+        }
+    </style>
 
 <body>
-<div class="login_wrapper" style="margin: calc(50vh - 320px) auto 0px;">
-    <form method="post" th:action="@{/views/signUp}" th:object="${userInfoDto}">
-        <div>
-            <input type="text" name="userId" class="form-control" placeholder="아이디" autocomplete="off"/>
-        </div>
-        <div>
-            <input type="password" name="pw" class="form-control" placeholder="비밀번호" autocomplete="off"/>
-        </div>
-        <div>
-            <input type="text" name="name" class="form-control" placeholder="이름" autocomplete="off"/>
-        </div>
-        <div style="margin-bottom: 50px;">
-            <input type="text" name="phoneNumber" class="form-control" placeholder="전화번호(-생략)" autocomplete="off"/>
-        </div>
-        <div>
-            <button type="submit" class="w-100 btn btn-primary btn-lg">Join</button>
-        </div>
-        <div>
-            <button type="button" class="w-100 btn btn-primary btn-lg">Back</button>
-        </div>
-    </form>
-    <hr class="separator"/>
-    <div>
-        <h1>DEMO</h1>
-        <p>©2019 All Rights Reserved.</p>
+    <div class="login_wrapper" style="margin: calc(50vh - 320px) auto 0px;">
+        <form method="post" th:action="@{/views/signUp}" th:object="${userInfoDto}">
+            <div class="container">
+                <form action="">
+                    <div class="inputBox">
+                        <input type="text" name="userId" class="form-control" placeholder="아이디" autocomplete="off"/>
+                        <span>User Id</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" name="pw" class="form-control" placeholder="비밀번호" autocomplete="off"/>
+                        <span>Password</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="name" class="form-control" placeholder="이름" autocomplete="off"/>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="phoneNumber" class="form-control" placeholder="전화번호(-생략)" autocomplete="off"/>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="Join">
+                    </div>
+                    <div class="inputBox">
+                        <input type="button" value="Back">
+                    </div>
+                </form>
+            </div>
+
+<!--            <div>-->
+<!--                <input type="text" name="userId" class="form-control" placeholder="아이디" autocomplete="off"/>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <input type="password" name="pw" class="form-control" placeholder="비밀번호" autocomplete="off"/>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <input type="text" name="name" class="form-control" placeholder="이름" autocomplete="off"/>-->
+<!--            </div>-->
+<!--            <div style="margin-bottom: 50px;">-->
+<!--                <input type="text" name="phoneNumber" class="form-control" placeholder="전화번호(-생략)" autocomplete="off"/>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <button type="submit" class="btn btn-outline-secondary">Join</button>-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                <button type="button" class="btn btn-outline-secondary">Back</button>-->
+<!--            </div>-->
+        </form>
     </div>
-</div>
 </body>
 </html>

@@ -17,11 +17,6 @@ public class MainController {
         return "views/home";
     }
 
-    @RequestMapping(value = "/views/about", method = RequestMethod.GET)
-    public String about() {
-        return "views/about";
-    }
-
     @RequestMapping(value = "/views/contact", method = RequestMethod.GET)
     public String contact() {
         return "views/contact";
