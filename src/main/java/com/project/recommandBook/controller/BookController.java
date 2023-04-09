@@ -14,19 +14,19 @@ public class BookController {
 
     private final RecommandBookService recommandBookService;
 
-    @RequestMapping(value = "/views/searchBook", method = RequestMethod.GET)
+    @RequestMapping(value = "/views/searchBook/searchBook", method = RequestMethod.GET)
     public String search() {
-        return "views/searchBook";
+        return "views/searchBook/searchBook";
     }
 
-    @RequestMapping(value = "/views/searchBookResult", method = RequestMethod.GET)
+    @RequestMapping(value = "/views/searchBook/searchBookResult", method = RequestMethod.GET)
     public String searchBook(@RequestParam(value = "keyWord") String keyWord, Model model) {
         if (keyWord.isEmpty())
-            return "views/searchBook";
+            return "views/searchBook/searchBook";
 
         model.addAttribute("books", recommandBookService.SearchRecommandBookList(keyWord));
 
-        return "views/searchBookResult";
+        return "views/searchBook/searchBookResult";
     }
 
 
