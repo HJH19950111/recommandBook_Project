@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/defaultLayout}"
+      layout:fragment="Content">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div>
+    <form th:action="@'/views/board/likePost/' + ${post.id}}" method="post">
+        <input type="hidden" name="_method" value="post" />
+        <button type="button" onclick="location.href='/views/board/list';"
+                class="w-100 btn btn-primary btn-lg">게시글 목록</button>
+    </form>
+</div>
+</body>
+</html>
