@@ -2,7 +2,7 @@ package com.project.recommandBook.service;
 
 import com.project.recommandBook.dto.BoardDto;
 import com.project.recommandBook.entity.Board;
-import com.project.recommandBook.enums.BoardMapper;
+import com.project.recommandBook.mapper.BoardMapper;
 import com.project.recommandBook.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

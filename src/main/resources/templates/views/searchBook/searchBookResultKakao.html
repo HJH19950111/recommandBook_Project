@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/defaultLayout}"
+      layout:fragment="Content">
+<head>
+  <head>
+    <meta charset="UTF-8">
+    <title>book::list</title>
+  </head>
+
+<body>
+<body>
+<table border="1">
+  <tr th:each="book:${books}">
+    <td>[[${book.isbn}]]</td>
+    <td><img th:src="${book.thumbnail}" th:alt="${book.title}" width="100"></td>
+    <td><a th:href="${book.url}">[[${book.title}]]</a></td>
+    <td>[[${book.authors}]]/[[${book.publisher}]]</td>
+    <td>[[${book.datetime}]]</td>
+  </tr>
+</table>
+
+</body>
+</body>
+</html>

@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
-public class BookDto {
+public class NaverBookDto {
     private String title;
     private String link;
     private String image;

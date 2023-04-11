@@ -11,11 +11,11 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter @Setter
-public class ResultBookDto {
-    private String lastBuildDate;
-    private int total;
-    private int start;
-    private int display;
-    private List<BookDto> items;
+@Getter
+@Setter
+public class KakaoResultBookDto {
+    private List<KakaoBookDto> documents;
+    private int total_count;
+    private int pageable_count;
+    private boolean is_end;
 }

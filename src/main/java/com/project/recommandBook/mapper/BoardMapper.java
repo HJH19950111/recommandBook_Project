@@ -1,4 +1,4 @@
-package com.project.recommandBook.enums;
+package com.project.recommandBook.mapper;
 
 
 import com.project.recommandBook.dto.BoardDto;
