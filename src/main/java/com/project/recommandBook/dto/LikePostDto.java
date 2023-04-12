@@ -7,8 +7,7 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Getter @Setter
 public class LikePostDto {
     private Long userInfoId;
     private Long boardId;

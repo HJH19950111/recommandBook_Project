@@ -12,17 +12,24 @@
   </head>
 
 <body>
-<body>
-<table border="1">
-  <tr th:each="book:${books}">
-    <td>[[${book.isbn}]]</td>
-    <td><img th:src="${book.thumbnail}" th:alt="${book.title}" width="100"></td>
-    <td><a th:href="${book.url}">[[${book.title}]]</a></td>
-    <td>[[${book.authors}]]/[[${book.publisher}]]</td>
-    <td>[[${book.datetime}]]</td>
-  </tr>
-</table>
+  <div class="navbar navbar-dark bg-dark shadow-sm mb-3">
+    <div class="container d-flex justify-content-between">
+      <a class="navbar-brand d-flex align-items-center">
+        <strong>Kakao 책 검색</strong>
+      </a>
+    </div>
+  </div>
+  <body>
+    <table border="1">
+      <tr th:each="book:${books}">
+        <td>[[${book.isbn}]]</td>
+        <td><img th:src="${book.thumbnail}" th:alt="${book.title}" width="100"></td>
+        <td><a th:href="${book.url}">[[${book.title}]]</a></td>
+        <td>[[${book.authors[0]}]]/[[${book.publisher}]]</td>
+        <td>[[${book.datetime}]]</td>
+      </tr>
+    </table>
 
-</body>
+  </body>
 </body>
 </html>

@@ -24,6 +24,11 @@ public class BookController {
         return "views/searchBook/searchBookKakao";
     }
 
+    @RequestMapping(value = "/views/searchBook/selectBookThema", method = RequestMethod.GET)
+    public String selectBookThema() {
+        return "views/searchBook/selectBookThema";
+    }
+
     @RequestMapping(value = "/views/searchBook/searchBookResultNaver", method = RequestMethod.GET)
     public String searchBookNaver(@RequestParam(value = "keyWord") String keyWord, Model model) {
         if (keyWord.isEmpty())
@@ -42,5 +47,25 @@ public class BookController {
         model.addAttribute("books", recommandBookService.SearchRecommandKakaoBookList(keyWord));
 
         return "views/searchBook/searchBookResultKakao";
+    }
+
+    @RequestMapping(value = "/views/searchBook/searchThemaLoveBookResultNaver", method = RequestMethod.POST)
+    public String searchThemaLoveBookTNaver(Model model) {
+        String keyWord = recommandBookService.SelectedThema("로맨스");
+
+        model.addAttribute("bookThema", keyWord);
+        model.addAttribute("books", recommandBookService.SearchRecommandNaverBookList(keyWord));
+
+        return "views/searchBook/searchBookResultNaver";
+    }
+
+    @RequestMapping(value = "/views/searchBook/searchThemaOrientalFantasyBookResultNaver", method = RequestMethod.POST)
+    public String searchThemaOrientalFantasyBookThemaNaver(Model model) {
+        String keyWord = recommandBookService.SelectedThema("무협");
+
+        model.addAttribute("bookThema", keyWord);
+        model.addAttribute("books", recommandBookService.SearchRecommandNaverBookList(keyWord));
+
+        return "views/searchBook/searchBookResultNaver";
     }
 }

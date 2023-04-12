@@ -9,8 +9,7 @@ import lombok.Setter;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Getter @Setter
 public class KakaoBookDto {
     private String title;
     private String contents;

@@ -8,6 +8,8 @@ import com.project.recommandBook.dto.KakaoBookDto;
 import com.project.recommandBook.dto.KakaoResultBookDto;
 import com.project.recommandBook.dto.NaverBookDto;
 import com.project.recommandBook.dto.NaverResultBookDto;
+import com.project.recommandBook.enums.EnumBookThemaLove;
+import com.project.recommandBook.enums.EnumBookThemaOrientalFantasy;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,9 +18,29 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class RecommandBookService {
+    public String SelectedThema(String selectedThema) {
+        List<String> themaList = null;
+
+        if (selectedThema == "로맨스") {
+            themaList = Stream.of(EnumBookThemaLove.values()).map(Enum::name).collect(Collectors.toList());
+        }
+        else if (selectedThema == "무협") {
+            themaList = Stream.of(EnumBookThemaOrientalFantasy.values()).map(Enum::name).collect(Collectors.toList());
+        }
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(themaList.size());
+        String keyWord = themaList.get(randomIndex);
+
+        return keyWord;
+    }
+
     public List<NaverBookDto> SearchRecommandNaverBookList(String keyWord) {
         URI uri = UriComponentsBuilder
                 .fromUriString("https://openapi.naver.com")

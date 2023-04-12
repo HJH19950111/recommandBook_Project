@@ -11,8 +11,7 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Getter @Setter
 public class KakaoResultBookDto {
     private List<KakaoBookDto> documents;
     private int total_count;
