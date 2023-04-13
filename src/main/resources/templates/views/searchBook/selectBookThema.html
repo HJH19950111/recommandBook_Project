@@ -16,11 +16,11 @@
             </a>
         </div>
     </div>
-        <form method="post" th:action="@{/views/searchBook/searchThemaLoveBookResultNaver}" th:object="${bookThemaDto}">
-            <input type="submit" value="로맨스"/>
+        <form name="themaForm1" method="post" th:action="@{/views/searchBook/searchThemaLoveBookResultNaver}" th:object="${bookThemaDto}">
+            <a href="javascript:document.themaForm1.submit();">로맨스</a>
         </form>
-        <form method="post" th:action="@{/views/searchBook/searchThemaOrientalFantasyBookResultNaver}" th:object="${bookThemaDto}">
-            <input type="submit" value="무협"/>
+        <form name="themaForm2" method="post" th:action="@{/views/searchBook/searchThemaOrientalFantasyBookResultNaver}" th:object="${bookThemaDto}">
+            <a href="javascript:document.themaForm2.submit();">무협</a>
         </form>
 
 </body>

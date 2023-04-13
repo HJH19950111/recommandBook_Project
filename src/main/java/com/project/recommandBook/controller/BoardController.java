@@ -1,6 +1,9 @@
 package com.project.recommandBook.controller;
 
 import com.project.recommandBook.dto.BoardDto;
+import com.project.recommandBook.entity.Board;
+import com.project.recommandBook.mapper.BoardMapper;
+import com.project.recommandBook.repository.BoardRepository;
 import com.project.recommandBook.repository.UserInfoRepository;
 import com.project.recommandBook.service.BoardService;
 import com.project.recommandBook.service.LikePostService;
@@ -24,6 +27,7 @@ public class BoardController {
     private final BoardService boardService;
     private final LikePostService likePostService;
     private final UserInfoRepository userInfoRepository;
+    private final BoardRepository boardRepository;
 
     @RequestMapping(value = "/views/board/list", method = RequestMethod.GET)
     public String boardList(Model model) {
@@ -90,10 +94,17 @@ public class BoardController {
         return "redirect:/views/board/list";
     }
 
-//    @RequestMapping(value = "/views/board/post/likePost/{id}", method = RequestMethod.DELETE)
-//    public String unLikePost(@PathVariable("id") Long id, Principal principal) throws Exception {
-//        likePostService.checkDuplicates(id, principal.getName());
-//
-//        return "redirect:/views/board/detailInfo";
-//    }
+    @RequestMapping(value = "/views/board/likePost/recommandBoardList", method = RequestMethod.POST)
+    public String searchRecommandBoardList(Model model) {
+        List<Board> boardList = boardRepository.findAll();
+        List<Board> resultBoardList = null;
+        List<BoardDto> boardDtos = BoardMapper.convertToDtoList(boardList);
+
+        for (BoardDto boardDto : boardDtos) {
+            resultBoardList = boardRepository.findTop2BylikeCountOrderByCreatedAtDesc(boardDto.getLikeCount());
+        }
+
+        model.addAttribute("boardList", resultBoardList);
+        return "views/home";
+    }
 }

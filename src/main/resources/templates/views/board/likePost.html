@@ -10,7 +10,7 @@
 </head>
 <body>
 <div>
-    <form th:action="@'/views/board/likePost/' + ${post.id}}" method="post">
+    <form th:action="@{'/views/board/likePost/' + ${post.id}}" method="post">
         <input type="hidden" name="_method" value="post" />
         <button type="button" onclick="location.href='/views/board/list';"
                 class="w-100 btn btn-primary btn-lg">게시글 목록</button>

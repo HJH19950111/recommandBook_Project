@@ -8,5 +8,6 @@ import lombok.RequiredArgsConstructor;
 public enum EnumBookThemaLove {
     사랑,
     러브,
-    여자친구
+    여자친구,
+    연애;
 }
