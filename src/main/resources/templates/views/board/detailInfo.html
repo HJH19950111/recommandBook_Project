@@ -37,6 +37,12 @@
                 th:text="|좋아요 : ${post.likeCount}|"
         ></small>
       </p>
+      <p class="card-text">
+        <small
+                class="text-muted"
+                th:text="|조회수 : ${post.viewCount}|"
+        ></small>
+      </p>
       <p class="card-text" th:text="${post.content}"></p>
     </div>
   </div>

@@ -16,6 +16,7 @@ public class BoardDto {
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
     private int likeCount;
+    private int viewCount;
 
     @Builder
     public Board toEntity() {
@@ -25,6 +26,7 @@ public class BoardDto {
                 .title(title)
                 .content(content)
                 .likeCount(likeCount)
+                .viewCount(viewCount)
                 .build();
     }
 }

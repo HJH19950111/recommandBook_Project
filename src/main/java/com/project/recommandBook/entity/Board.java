@@ -43,13 +43,19 @@ public class Board {
     @ColumnDefault("0")
     private int likeCount;
 
+    @Column(name = "view_Count", nullable = false)
+    @ColumnDefault("0")
+    private int viewCount;
+
+
     @Builder
-    public Board(Long id, String author, String title, String content, int likeCount) {
+    public Board(Long id, String author, String title, String content, int likeCount, int viewCount) {
         this.id = id;
         this.author = author;
         this.title = title;
         this.content = content;
         this.likeCount = likeCount;
+        this.viewCount = viewCount;
     }
 
     public void addLikeCount() {
@@ -58,6 +64,10 @@ public class Board {
 
     public void subLikeCount() {
         this.likeCount -= 1;
+    }
+
+    public void addViewCount() {
+        this.viewCount += 1;
     }
 }
 

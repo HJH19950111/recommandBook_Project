@@ -18,6 +18,7 @@ public class BoardMapper {
         boardDto.setContent(board.getContent());
         boardDto.setCreatedAt(board.getCreatedAt());
         boardDto.setModifiedAt(board.getModifiedAt());
+        boardDto.setViewCount(board.getViewCount());
         boardDto.setLikeCount(board.getLikeCount());
 
         return boardDto;
