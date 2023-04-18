@@ -43,6 +43,12 @@
                 th:text="|조회수 : ${post.viewCount}|"
         ></small>
       </p>
+      <p class="card-text">
+        책 제목 :
+        <a th:text="${post.recommandBookName}"
+           th:href="@{'/views/searchBook/searchBookResultNaver?keyWord=' + ${post.recommandBookName}}"></a>
+      </p>
+<!--      <a th:text="|책 제목 : ${post.recommandBookName}|" th:href="@{'/views/searchBook/searchBookResultNaver?keyWord=' + ${post.recommandBookName}}"></a>-->
       <p class="card-text" th:text="${post.content}"></p>
     </div>
   </div>

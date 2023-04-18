@@ -12,6 +12,7 @@ public class BoardDto {
     private Long id;
     private String author;
     private String title;
+    private String recommandBookName;
     private String content;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
@@ -24,6 +25,7 @@ public class BoardDto {
                 .id(id)
                 .author(author)
                 .title(title)
+                .recommandBookName(recommandBookName)
                 .content(content)
                 .likeCount(likeCount)
                 .viewCount(viewCount)

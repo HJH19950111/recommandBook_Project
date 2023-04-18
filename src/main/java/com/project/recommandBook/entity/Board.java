@@ -28,6 +28,9 @@ public class Board {
     @Column(name = "title", unique = false, nullable = false, columnDefinition = "TEXT")
     private String title;
 
+    @Column(name = "recommand_BookName", unique = false, nullable = false, columnDefinition = "TEXT")
+    private String recommandBookName;
+
     @Column(name = "content", unique = false, nullable = false)
     private String content;
 
@@ -49,10 +52,11 @@ public class Board {
 
 
     @Builder
-    public Board(Long id, String author, String title, String content, int likeCount, int viewCount) {
+    public Board(Long id, String author, String title, String recommandBookName, String content, int likeCount, int viewCount) {
         this.id = id;
         this.author = author;
         this.title = title;
+        this.recommandBookName = recommandBookName;
         this.content = content;
         this.likeCount = likeCount;
         this.viewCount = viewCount;
