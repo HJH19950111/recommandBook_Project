@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/defaultLayout}"
+      layout:fragment="Content">
+<head>
+    <title>달력</title>
+    <link href="/css/calenderStyles.css" rel="stylesheet"/>
+    <script src="/js/calenderScripts.js"></script>
+</head>
+<body>
+    <table class="Calendar">
+        <thead>
+        <tr>
+            <td onClick="prevCalendar();" style="cursor:pointer;">&#60;</td>
+            <td colspan="5">
+                <span id="calYear"></span>년
+                <span id="calMonth"></span>월
+            </td>
+            <td onClick="nextCalendar();" style="cursor:pointer;">&#62;</td>
+        </tr>
+        <tr>
+            <td>일</td>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+            <td>토</td>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <form name="attendanceCheckForm" method="post" th:action="@{/views/event/attendanceCheck/submit}">
+        <button href="javascript:document.attendanceCheckForm.submit();"
+                class="btn btn-primary">출석체크</button>
+    </form>
+</body>
+</html>
