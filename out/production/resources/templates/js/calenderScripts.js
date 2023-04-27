@@ -28,7 +28,6 @@ window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드�
 
             let nowColumn = nowRow.insertCell();        // 새 열을 추가하고
 
-
             let newDIV = document.createElement("p");
             newDIV.innerHTML = leftPad(nowDay.getDate());        // 추가한 열에 날짜 입력
             nowColumn.appendChild(newDIV);
@@ -56,8 +55,8 @@ window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드�
         if (document.getElementsByClassName("choiceDay")[0]) {                              // 기존에 선택한 날짜가 있으면
             document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");  // 해당 날짜의 "choiceDay" class 제거
         }
-        newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
 
+        newDIV.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
     }
 
     // 이전달 버튼 클릭

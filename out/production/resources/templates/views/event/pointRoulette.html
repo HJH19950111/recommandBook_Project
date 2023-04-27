@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/defaultLayout}"
+      layout:fragment="Content">
+<head>
+    <script type="text/javascript" src="/assets/jquery-3.6.4.min.js"></script>
+    <link href="/css/pointRoulette.css" rel="stylesheet"/>
+    <script src="/js/pointRoulette.js"></script>
+    <script src="https://cdn.sobekrepository.org/includes/jquery-rotate/2.2/jquery-rotate.min.js"></script>
+</head>
+<body>
+    <div class="box-roulette">
+        <div class="markers"></div>
+        <button type="button" id="btn-start">
+            돌려 돌려<br>돌림판
+        </button>
+        <div class="roulette" id="roulette"></div>
+    </div>
+</body>
+</html>

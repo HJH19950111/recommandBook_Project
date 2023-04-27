@@ -34,8 +34,9 @@
         <tbody></tbody>
     </table>
     <form name="attendanceCheckForm" method="post" th:action="@{/views/event/attendanceCheck/submit}">
-        <button href="javascript:document.attendanceCheckForm.submit();"
-                class="btn btn-primary">출석체크</button>
+        <button id="checkButton" class="btn btn-primary">출석체크</button>
+        <input id="checkBox1" name="checkBox1" type="checkbox" disabled="disabled"/>
+        <input name="checkBox1" type="hidden" value="true"/>
     </form>
 </body>
 </html>

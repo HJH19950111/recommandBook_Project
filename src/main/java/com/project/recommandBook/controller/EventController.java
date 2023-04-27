@@ -17,9 +17,13 @@ public class EventController {
 
     @RequestMapping(value = "/views/event/attendanceCheck/submit", method = RequestMethod.POST)
     public String attendanceCheckSubmit() {
-        int i = 0;
-        i += 4;
 
-        return "views/event/attendanceCheck";
+        return "redirect:/views/event/attendanceCheck";
+    }
+
+    @RequestMapping(value = "/views/event/pointRoulette", method = RequestMethod.GET)
+    public String pointRoulette() {
+
+        return "views/event/pointRoulette";
     }
 }
