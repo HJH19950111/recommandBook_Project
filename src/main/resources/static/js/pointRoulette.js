@@ -17,52 +17,20 @@
 
         var data = [
 					{
-            color: '#3f297e',
-            text: 'N분의 1'
+            color: '#FFE4B5',
+            text: '10'
           },
           {
-            color: '#1d61ac',
-            text: '요즘것들'
+            color: '#98FB98',
+            text: '20'
           },
           {
-            color: '#169ed8',
-            text: '도박'
+            color: '#87CEFA',
+            text: '50'
           },
           {
-            color: '#209b6c',
-            text: '젓가락'
-          },
-          {
-            color: '#60b236',
-            text: '거북선'
-          },
-          {
-            color: '#efe61f',
-            text: '겁'
-          },
-          {
-            color: '#f7a416',
-            text: 'Day Day'
-          },
-          {
-            color: '#e6471d',
-            text: '호랑나비'
-          },
-          {
-            color: '#dc0936',
-            text: 'Okey Dokey'
-          },
-          {
-            color: '#e5177b',
-            text: '오빠차'
-          },
-          {
-            color: '#be107f',
-            text: 'RESPECT'
-          },
-          {
-            color: '#881f7e',
-            text: '작두'
+            color: '#DDA0DD',
+            text: '100'
           }
         ];
 
@@ -123,21 +91,52 @@
 
         function rotation() {
 
-          var completeA = 360 * r(5, 10) + r(0, 360);
+//          var completeA = 360 * r(5, 10) + r(0, 360);
+          var ran = Math.floor(Math.random() * data.length);
+          var arc = 360 / data.length;
+          var rotate1 = (ran * arc) + 3600 + (arc * 3) - (arc/4);
 
           $roulette.rotate({
             angle: angle,
-            animateTo: completeA,
+//            animateTo: completeA,
+            animateTo: rotate1,
             center: ["50%", "50%"],
             easing: $.easing.esing,
             callback: function() {
               var currentA = $(this).getRotateAngle();
 
               console.log(currentA);
-
+              //결과
+              endAnimate(currentA);
+              location.reload();
             },
             duration: speed
           });
+        }
+
+        function endAnimate($currentA) {
+//            var real_angle = $currentA % 360;
+            var real_angle = $currentA;
+            while (real_angle >= 360){
+                real_angle -= 360;
+            }
+
+            if(real_angle < 90){
+               alert("50 포인트 적립!");
+                return;
+            }
+            else if(real_angle >= 90 && real_angle < 180){
+               alert("20 포인트 적립!");
+                return;
+            }
+            else if(real_angle >= 180 && real_angle < 270){
+               alert("10 포인트 적립!");
+                return;
+            }
+            else if(real_angle >= 270 && real_angle < 360){
+               alert("100 포인트 적립!");
+                return;
+            }
         }
 
         function r(min, max) {
