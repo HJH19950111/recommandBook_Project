@@ -108,7 +108,6 @@
               console.log(currentA);
               //결과
               endAnimate(currentA);
-              location.reload();
             },
             duration: speed
           });
@@ -117,36 +116,60 @@
         function endAnimate($currentA) {
 //            var real_angle = $currentA % 360;
             var real_angle = $currentA;
+            var point = 0;
+
             while (real_angle >= 360){
                 real_angle -= 360;
             }
 
             if(real_angle < 90){
                alert("50 포인트 적립!");
-                return;
+               point = 50;
+//                return;
             }
             else if(real_angle >= 90 && real_angle < 180){
                alert("20 포인트 적립!");
-                return;
+               point = 20;
+//                return;
             }
             else if(real_angle >= 180 && real_angle < 270){
                alert("10 포인트 적립!");
-                return;
+               point = 10;
+//                return;
             }
             else if(real_angle >= 270 && real_angle < 360){
                alert("100 포인트 적립!");
-                return;
+               point = 100;
+//                return;
             }
+
+            postAddPoint(point);
+            return;
         }
 
         function r(min, max) {
           return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
+          function postAddPoint($point) {
+              const form = document.createElement('form');
+              form.method = 'get';
+              form.action = '/views/userInfo';
+
+              var input1 = document.createElement('input');
+              input1.setAttribute("type", "hidden");
+              input1.setAttribute("name", "pointData");
+              input1.setAttribute("value", $point);
+              form.appendChild(input1);
+
+              document.body.appendChild(form)
+              form.submit();
+          }
       });
     }
   });
 })(jQuery);
+
 
 $(function() {
 

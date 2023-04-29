@@ -1,6 +1,7 @@
 package com.project.recommandBook.service;
 
 import com.project.recommandBook.dto.UserInfoDto;
+import com.project.recommandBook.entity.Board;
 import com.project.recommandBook.entity.UserInfo;
 import com.project.recommandBook.repository.UserInfoRepository;
 import lombok.RequiredArgsConstructor;
@@ -35,5 +36,11 @@ public class UserInfoService {
         Optional<UserInfo> res = userInfoRepository.findByUserId(id);
 
         return res.filter(m -> m.getPw().equals(pw)).orElse(null);
+    }
+
+    @Transactional
+    public void updatePoint(String id, int point) {
+        Optional<UserInfo> res = userInfoRepository.findByUserId(id);
+        res.get().addPoint(point);
     }
 }

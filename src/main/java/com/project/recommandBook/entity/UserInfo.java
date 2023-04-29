@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -38,18 +39,27 @@ public class UserInfo {
     @CreationTimestamp
     private Date createdAt;
 
+    @Column(name = "point", unique = false, nullable = false)
+    @ColumnDefault("0")
+    private int point;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "user_Role", unique = false, nullable = false)
     private EnumUserRole userRole;
 
     @Builder
-    public UserInfo(Long id, String userId, String pw, String name, String phoneNumber, Date createdAt, EnumUserRole userRole) {
+    public UserInfo(Long id, String userId, String pw, String name, String phoneNumber, Date createdAt, int point, EnumUserRole userRole) {
         this.id = id;
         this.userId = userId;
         this.pw = pw;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.createdAt = createdAt;
+        this.point = point;
         this.userRole = userRole;
+    }
+
+    public void addPoint(int point) {
+        this.point += point;
     }
 }

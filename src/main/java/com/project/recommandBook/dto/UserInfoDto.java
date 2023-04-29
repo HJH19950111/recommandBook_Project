@@ -42,6 +42,8 @@ public class UserInfoDto {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createdAt;
 
+    private int point;
+
     private EnumUserRole userRole;
 
     public UserInfo toEntity() {
@@ -52,6 +54,7 @@ public class UserInfoDto {
                 .pw(pw)
                 .phoneNumber(phoneNumber)
                 .createdAt(createdAt)
+                .point(point)
                 .userRole(userRole.USER)
                 .build();
     }
