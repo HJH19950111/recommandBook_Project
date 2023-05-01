@@ -43,12 +43,16 @@ public class UserInfo {
     @ColumnDefault("0")
     private int point;
 
+    @Column(name = "is_get_point", unique = false, nullable = false)
+    @ColumnDefault("false")
+    private boolean isGetPoint;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "user_Role", unique = false, nullable = false)
     private EnumUserRole userRole;
 
     @Builder
-    public UserInfo(Long id, String userId, String pw, String name, String phoneNumber, Date createdAt, int point, EnumUserRole userRole) {
+    public UserInfo(Long id, String userId, String pw, String name, String phoneNumber, Date createdAt, int point, boolean isGetPoint, EnumUserRole userRole) {
         this.id = id;
         this.userId = userId;
         this.pw = pw;
@@ -56,10 +60,15 @@ public class UserInfo {
         this.phoneNumber = phoneNumber;
         this.createdAt = createdAt;
         this.point = point;
+        this.isGetPoint = isGetPoint;
         this.userRole = userRole;
     }
 
     public void addPoint(int point) {
         this.point += point;
+    }
+
+    public void changeAddPointCondition(boolean isGetPoint) {
+        this.isGetPoint = isGetPoint;
     }
 }

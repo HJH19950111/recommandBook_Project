@@ -18,19 +18,19 @@
         var data = [
 					{
             color: '#FFE4B5',
-            text: '10'
+            text: '로맨스'
           },
           {
             color: '#98FB98',
-            text: '20'
+            text: '무협'
           },
           {
             color: '#87CEFA',
-            text: '50'
+            text: '액션'
           },
           {
             color: '#DDA0DD',
-            text: '100'
+            text: '판타지'
           }
         ];
 
@@ -114,36 +114,26 @@
         }
 
         function endAnimate($currentA) {
-//            var real_angle = $currentA % 360;
             var real_angle = $currentA;
-            var point = 0;
 
             while (real_angle >= 360){
                 real_angle -= 360;
             }
 
             if(real_angle < 90){
-               alert("50 포인트 적립!");
-               point = 50;
-//                return;
+               alert("오늘의 추천 테마는 액션!");
             }
             else if(real_angle >= 90 && real_angle < 180){
-               alert("20 포인트 적립!");
-               point = 20;
-//                return;
+               alert("오늘의 추천 테마는 무협!");
             }
             else if(real_angle >= 180 && real_angle < 270){
-               alert("10 포인트 적립!");
-               point = 10;
-//                return;
+               alert("오늘의 추천 테마는 로맨스!");
             }
             else if(real_angle >= 270 && real_angle < 360){
-               alert("100 포인트 적립!");
-               point = 100;
-//                return;
+               alert("오늘의 추천 테마는 판타지!");
             }
 
-            postAddPoint(point);
+//            postAddPoint(point);
             return;
         }
 
@@ -154,7 +144,7 @@
           function postAddPoint($point) {
               const form = document.createElement('form');
               form.method = 'get';
-              form.action = '/views/userInfo';
+              form.action = '/views/event/addRoulettePoint';
 
               var input1 = document.createElement('input');
               input1.setAttribute("type", "hidden");

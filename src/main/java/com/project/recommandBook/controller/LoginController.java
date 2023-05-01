@@ -44,12 +44,6 @@ public class LoginController {
         return "views/signUp";
     }
 
-//    @RequestMapping(value = "/views/userInfo", method = RequestMethod.GET)
-//    public String userInfo() {
-//
-//        return "views/userInfo";
-//    }
-
     @RequestMapping(value = "/views/signUp", method = RequestMethod.POST)
     public String signUpPost(@ModelAttribute @Validated UserInfoDto userInfoDto,
                              BindingResult result) {

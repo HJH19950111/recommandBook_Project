@@ -34,9 +34,7 @@
         <tbody></tbody>
     </table>
     <form name="attendanceCheckForm" method="post" th:action="@{/views/event/attendanceCheck/submit}">
-        <button id="checkButton" class="btn btn-primary">출석체크</button>
-        <input id="checkBox1" name="checkBox1" type="checkbox" disabled="disabled"/>
-        <input name="checkBox1" type="hidden" value="true"/>
+        <button id="checkButton" class="btn btn-primary" onclick="addPointMessage('${post.isGetPoint}')">출석체크</button>
     </form>
 </body>
 </html>

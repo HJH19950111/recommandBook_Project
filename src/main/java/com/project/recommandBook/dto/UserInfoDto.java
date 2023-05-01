@@ -43,6 +43,7 @@ public class UserInfoDto {
     private Date createdAt;
 
     private int point;
+    private boolean isGetPoint;
 
     private EnumUserRole userRole;
 
@@ -55,6 +56,7 @@ public class UserInfoDto {
                 .phoneNumber(phoneNumber)
                 .createdAt(createdAt)
                 .point(point)
+                .isGetPoint(isGetPoint)
                 .userRole(userRole.USER)
                 .build();
     }

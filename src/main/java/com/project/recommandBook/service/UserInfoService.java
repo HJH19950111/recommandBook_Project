@@ -5,10 +5,12 @@ import com.project.recommandBook.entity.Board;
 import com.project.recommandBook.entity.UserInfo;
 import com.project.recommandBook.repository.UserInfoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @Service
@@ -41,6 +43,19 @@ public class UserInfoService {
     @Transactional
     public void updatePoint(String id, int point) {
         Optional<UserInfo> res = userInfoRepository.findByUserId(id);
+
+        if (res.get().isGetPoint()) {
+            return;
+        }
+
         res.get().addPoint(point);
+        res.get().changeAddPointCondition(true);
+    }
+
+    // 일일 출석체크 초기화
+    @Transactional
+    @Scheduled(cron = "59 59 23 * * *")
+    public void resetAddPointCondition() {
+        userInfoRepository.changeIsGetPoint(false);
     }
 }

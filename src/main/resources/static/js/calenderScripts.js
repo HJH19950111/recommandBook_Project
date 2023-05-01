@@ -70,6 +70,19 @@ window.onload = function () { buildCalendar(); }    // 웹 페이지가 로드�
         buildCalendar();    // 달력 다시 생성
     }
 
+    function addPointMessage(value) {
+        const target = document.getElementById('checkButton');
+
+        alert("일일 출석체크 완료! (중복수령 불가)");
+//
+//        if (value == false) {
+//            alert("출석체크 완료! (50p 적립)");
+//        }
+//        else {
+//            alert("이미 출석했습니다.");
+//        }
+    }
+
     // input값이 한자리 숫자인 경우 앞에 '0' 붙혀주는 함수
     function leftPad(value) {
         if (value < 10) {
