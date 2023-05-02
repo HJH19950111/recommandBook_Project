@@ -40,11 +40,6 @@ public class EventController {
         return "redirect:/views/event/attendanceCheck";
     }
 
-    @RequestMapping(value = "/views/event/selectThema", method = RequestMethod.GET)
-    public String selectThema() {
-
-        return "views/event/selectThema";
-    }
 
 //    @RequestMapping(value = "/views/event/addRoulettePoint", method = RequestMethod.GET)
 //    public String addRoulettePoint(@RequestParam(value ="pointData") int pointData, Model model, Principal principal) {
