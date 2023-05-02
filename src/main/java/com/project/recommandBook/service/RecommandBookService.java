@@ -8,8 +8,10 @@ import com.project.recommandBook.dto.KakaoBookDto;
 import com.project.recommandBook.dto.KakaoResultBookDto;
 import com.project.recommandBook.dto.NaverBookDto;
 import com.project.recommandBook.dto.NaverResultBookDto;
+import com.project.recommandBook.enums.EnumBookThemaHistory;
 import com.project.recommandBook.enums.EnumBookThemaLove;
 import com.project.recommandBook.enums.EnumBookThemaOrientalFantasy;
+import com.project.recommandBook.enums.EnumBookThemaTravel;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,12 @@ public class RecommandBookService {
         }
         else if (selectedThema == "무협") {
             themaList = Stream.of(EnumBookThemaOrientalFantasy.values()).map(Enum::name).collect(Collectors.toList());
+        }
+        else if (selectedThema == "여행") {
+            themaList = Stream.of(EnumBookThemaTravel.values()).map(Enum::name).collect(Collectors.toList());
+        }
+        else if (selectedThema == "역사") {
+            themaList = Stream.of(EnumBookThemaHistory.values()).map(Enum::name).collect(Collectors.toList());
         }
 
         Random random = new Random();

@@ -58,7 +58,7 @@
                            id="navbardrop3" data-toggle="dropdown">이벤트</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="/views/event/attendanceCheck">출석체크</a>
-                            <a class="dropdown-item" href="/views/event/selectThema">포인트 룰렛</a>
+                            <a class="dropdown-item" href="/views/event/selectThema">오늘의 테마는?</a>
                         </div>
                     </li>
                 </ul>
@@ -74,6 +74,9 @@
         <button sec:authorize="isAnonymous()" class="btn btn primary btn-lg text-white"
                 onclick="location.href='/views/signUp';"
                 type="submit" style="float:right;">SignUp</button>
+        <button sec:authorize="isAuthenticated()" class="btn btn primary btn-lg text-white"
+                onclick="location.href='/views/userInfo';"
+                type="submit" style="float:right;">MyInfo</button>
     </nav>
 
     <!-- Page Header-->

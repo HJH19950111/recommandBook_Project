@@ -26,7 +26,6 @@ public class BoardController {
 
     private final BoardService boardService;
     private final LikePostService likePostService;
-    private final UserInfoRepository userInfoRepository;
     private final BoardRepository boardRepository;
 
     @RequestMapping(value = "/views/board/list", method = RequestMethod.GET)

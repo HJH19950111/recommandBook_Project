@@ -68,4 +68,24 @@ public class BookController {
 
         return "views/searchBook/searchBookResultNaver";
     }
+
+    @RequestMapping(value = "/views/searchBook/searchThemaTravelBookResultNaver", method = RequestMethod.POST)
+    public String searchThemaTravelBookThemaNaver(Model model) {
+        String keyWord = recommandBookService.SelectedThema("여행");
+
+        model.addAttribute("bookThema", keyWord);
+        model.addAttribute("books", recommandBookService.SearchRecommandNaverBookList(keyWord));
+
+        return "views/searchBook/searchBookResultNaver";
+    }
+
+    @RequestMapping(value = "/views/searchBook/searchThemaHistoryBookResultNaver", method = RequestMethod.POST)
+    public String searchThemaHistoryBookThemaNaver(Model model) {
+        String keyWord = recommandBookService.SelectedThema("역사");
+
+        model.addAttribute("bookThema", keyWord);
+        model.addAttribute("books", recommandBookService.SearchRecommandNaverBookList(keyWord));
+
+        return "views/searchBook/searchBookResultNaver";
+    }
 }

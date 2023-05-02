@@ -26,11 +26,11 @@
           },
           {
             color: '#87CEFA',
-            text: '액션'
+            text: '여행'
           },
           {
             color: '#DDA0DD',
-            text: '판타지'
+            text: '역사'
           }
         ];
 
@@ -121,7 +121,7 @@
             }
 
             if(real_angle < 90){
-               alert("오늘의 추천 테마는 액션!");
+               alert("오늘의 추천 테마는 여행!");
             }
             else if(real_angle >= 90 && real_angle < 180){
                alert("오늘의 추천 테마는 무협!");
@@ -130,7 +130,7 @@
                alert("오늘의 추천 테마는 로맨스!");
             }
             else if(real_angle >= 270 && real_angle < 360){
-               alert("오늘의 추천 테마는 판타지!");
+               alert("오늘의 추천 테마는 역사!");
             }
 
 //            postAddPoint(point);

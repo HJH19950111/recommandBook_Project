@@ -1,6 +1,8 @@
 package com.project.recommandBook.controller;
 
 import com.project.recommandBook.dto.UserInfoDto;
+import com.project.recommandBook.entity.UserInfo;
+import com.project.recommandBook.repository.UserInfoRepository;
 import com.project.recommandBook.service.UserInfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 @AllArgsConstructor
 public class LoginController {
 
     private final UserInfoService userInfoService;
+    private final UserInfoRepository userInfoRepository;
 
     @RequestMapping(value = "/views/login", method = RequestMethod.GET)
     public String login(@ModelAttribute UserInfoDto userInfoDto) {
@@ -61,5 +66,12 @@ public class LoginController {
     public String logoutPost(HttpServletRequest request, HttpServletResponse response) {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/views/userInfo", method = RequestMethod.GET)
+    public String userInfo(Principal principal, Model model) {
+        Optional<UserInfo> res = userInfoRepository.findByUserId(principal.getName());
+        model.addAttribute("post", res.get());
+        return "views/userInfo";
     }
 }
