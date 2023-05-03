@@ -88,4 +88,10 @@ public class BookController {
 
         return "views/searchBook/searchBookResultNaver";
     }
+
+    @RequestMapping(value = "/views/selectThema", method = RequestMethod.GET)
+    public String selectThema() {
+
+        return "views/selectThema";
+    }
 }

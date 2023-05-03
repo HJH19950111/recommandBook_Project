@@ -27,10 +27,4 @@ public class MainController {
     public String contact() {
         return "views/contact";
     }
-
-    @RequestMapping(value = "/views/selectThema", method = RequestMethod.GET)
-    public String selectThema() {
-
-        return "views/selectThema";
-    }
 }
